@@ -13,14 +13,16 @@ import javafx.stage.Stage;
 import org.json.JSONObject;
 
 
-public class main extends Application{
+public class Main extends Application implements UIListener{
+    static tcpSocketHandler s;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("/gui/loginUI.fxml"));
 
-        //LoginController loginController = new LoginController();
-        //fxmlLoader.setController(loginController);
+        LoginController loginController = new LoginController();
+        fxmlLoader.setController(loginController);
+        loginController.addUIListener(this);
 
         Parent root = (Parent) fxmlLoader.load(/*this.getClass().getResource("/gui.loginUI.fxml")*/);
         primaryStage.setScene(new Scene(root));
@@ -28,12 +30,14 @@ public class main extends Application{
     }
 
     public static void main(String[] args) {
-        tcpSocketHandler s;
         s = new tcpSocketHandler("127.0.0.1", 1337);
-        s.send("Hei på deg");
-        s.disconnect();
         launch(args);
 
+    }
+
+    @Override
+    public void sendRequest(JSONObject jsonObject) {
+        s.send(jsonObject.toString());
     }
     /*
     public static void main(String[] args){

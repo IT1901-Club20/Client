@@ -1,6 +1,6 @@
 package connector;
 
-public interface socket {
+public interface Socket {
     int connect(String adress, int port);
     int disconnect();
     int send(String transmission);

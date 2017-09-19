@@ -1,16 +1,12 @@
 package connector;
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.util.stream.Stream;
 
-public class tcpSocketHandler implements socket{
+public class tcpSocketHandler implements Socket {
     String adress;
     int port;
-    Socket s;
+    java.net.Socket s;
     DataInputStream responses;
     DataOutputStream toSend;
 
@@ -20,7 +16,7 @@ public class tcpSocketHandler implements socket{
      */
     public tcpSocketHandler(String inAdress, int inPort){
         try{
-            s = new Socket(inAdress, inPort);
+            s = new java.net.Socket(inAdress, inPort);
             toSend = new DataOutputStream(s.getOutputStream());
         }
         catch (IOException e){
