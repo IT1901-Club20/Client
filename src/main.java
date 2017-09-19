@@ -28,10 +28,10 @@ public class main extends Application{
     }
 
     public static void main(String[] args) {
-        /*tcpSocketHandler s;
+        tcpSocketHandler s;
         s = new tcpSocketHandler("127.0.0.1", 1337);
         s.send("Hei på deg");
-        s.disconnect();*/
+        s.disconnect();
         launch(args);
 
     }
