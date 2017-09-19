@@ -10,9 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.kopitubruk.util.json.JSONParser;
-import org.kopitubruk.util.json.JSONUtil;
-import org.kopitubruk.util.json.JsonObject;
+import org.json.JSONObject;
 
 
 public class main extends Application{
@@ -30,10 +28,10 @@ public class main extends Application{
     }
 
     public static void main(String[] args) {
-        tcpSocketHandler s;
+        /*tcpSocketHandler s;
         s = new tcpSocketHandler("127.0.0.1", 1337);
         s.send("Hei på deg");
-        s.disconnect();
+        s.disconnect();*/
         launch(args);
 
     }
